@@ -1,0 +1,15 @@
+.timer-on {
+    color: white;
+}
+
+.timer-off {
+    color: white;
+}
+
+.timer-ready {
+    color: green;
+}
+
+.timer-wait {
+    color: red;
+}
