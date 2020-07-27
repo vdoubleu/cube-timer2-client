@@ -19,7 +19,6 @@ const Graph = props => {
         const h = size[1];
 
         let newW;
-        let newH;
 
         if (w > 500)
            newW = w * 0.6;
