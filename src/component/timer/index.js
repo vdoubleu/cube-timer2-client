@@ -14,6 +14,9 @@ const Timer = props => {
     const updateTime = () => {
         const newTime = parseFloat(document.getElementById("timer-number").innerHTML);
         timeHandler([...timeRecord, {"name": timeRecord.length, "solvetime": newTime}]);
+        fetch("https://cube-timer-server.herokuapp.com/addtime?id=bob&time=" + newTime, {
+          "method": "POST",
+        });
     }
 
     const startTimer = () => {

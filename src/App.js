@@ -11,8 +11,9 @@ function App() {
 
   useEffect(() => {
     fetch(`https://cube-timer-server.herokuapp.com/gettime?id=bob`)
-      .then(res => res.body)
-      .then(out => console.log(out))
+      .then(out => out.text())
+      .then(txt => JSON.parse(txt))
+      .then(out => setTimes(out.reformtime))
   }, [])
 
   return (
@@ -20,6 +21,7 @@ function App() {
         <h2 className="main-title"> Vdoubleu's Cube Timer </h2>
         <Timer timerec={times} timehandle={setTimes} />
         <Graph data={times} />
+      {/*<TimeButtons timerec={times} timehandle={setTimes} />*/}
     </div>
   );
 }
