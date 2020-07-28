@@ -1,15 +1,3 @@
-.timer-on {
-    color: white;
-}
-
-.timer-off {
-    color: white;
-}
-
-.timer-ready {
-    color: green;
-}
-
-.timer-wait {
-    color: red;
+#timer-number {
+    margin: 0.5em 0;
 }

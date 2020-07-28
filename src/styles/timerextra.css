@@ -1,0 +1,34 @@
+#setting-button-group {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.setting-button {
+    height: 30px;
+    font-size: 20px;
+    margin: 0 5px 5px 5px;
+}
+
+#setting-user-input {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+#setting-id-label {
+    margin-right: 5px;
+}
+
+#setting-id-input-group {
+    margin-top: -5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+#user-id-input {
+    padding: 2px;
+    font-size: 20px;
+}

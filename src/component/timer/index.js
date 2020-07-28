@@ -5,6 +5,7 @@ import "../../styles/timer.css";
 const Timer = props => {
     const timeRecord = props.timerec;
     const timeHandler = props.timehandle;
+    const user = props.user;
 
     let timerState = "off";
    
@@ -14,7 +15,7 @@ const Timer = props => {
     const updateTime = () => {
         const newTime = parseFloat(document.getElementById("timer-number").innerHTML);
         timeHandler([...timeRecord, {"name": timeRecord.length, "solvetime": newTime}]);
-        fetch("https://cube-timer-server.herokuapp.com/addtime?id=bob&time=" + newTime, {
+        fetch(`https://cube-timer-server.herokuapp.com/addtime?id=${user}&time=${newTime}`, {
           "method": "POST",
         });
     }
@@ -69,11 +70,14 @@ const Timer = props => {
                 document.getElementById("timer-number").style.color = "#fffdc9";
                 timerState = "on";
                 startTimer();
-            } else {
+            } else if (timerState === "on") {
                 updateTime();
                 document.getElementById("timer-number").style.color = "#fafafa";
                 timerState = "off";
                 resetTimer();
+            } else {
+                document.getElementById("timer-number").style.color = "#fafafa";
+                timerState = "off";
             }
         }
     }
