@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import "../../styles/timer.css";
 
@@ -6,6 +6,8 @@ const Timer = props => {
     const timeRecord = props.timerec;
     const timeHandler = props.timehandle;
     const user = props.user;
+
+    const timerNum = useRef(null);
 
     let timerState = "off";
    
@@ -82,9 +84,46 @@ const Timer = props => {
         }
     }
 
+
+    if (timerNum.current !== null) {
+        timerNum.current.ontouchstart = (e) => {
+            e.preventDefault();
+
+            if (timerState === "off") {
+                timerState = "wait";
+                document.getElementById("timer-number").style.color = "red";
+
+                setTimeout(() => {
+                    if (timerState === "wait") {
+                        timerState = "ready";
+                        document.getElementById("timer-number").style.color = "#00d639";
+                    }
+                }, 1000);
+            }
+        }
+
+        timerNum.current.ontouchend = (e) => {
+            if (timerState === "ready") {
+                document.getElementById("timer-number").style.color = "#fffdc9";
+                timerState = "on";
+                startTimer();
+            } else if (timerState === "on") {
+                updateTime();
+                document.getElementById("timer-number").style.color = "#fafafa";
+                timerState = "off";
+                resetTimer();
+            } else {
+                document.getElementById("timer-number").style.color = "#fafafa";
+                timerState = "off";
+            }
+
+        }
+    }
+
+
     return (
         <div>
-            <h1 className="timer" id="timer-number">0.000</h1>
+            <h1 ref={timerNum} className="timer" id="timer-number">0.000</h1>
         </div>
     );
 }
