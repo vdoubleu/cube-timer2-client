@@ -2,7 +2,7 @@
 
 This is the client for my cube timer.
 
-The client is built using React. The Recharts library was used for the graph and it calls a Flask server with MongoDB to store and fetch data.
+The client is built using React. The Recharts library was used for the graph and it calls a Flask server with MongoDB to store and fetch data. The code for the server can be found [here](https://github.com/vdoubleu/cube-timer2-server)
 
 ## How to use
 Press and hold the space bar to ready the timer. Once the timer turns green, you can let go to start it. You can hit the spacebar again to stop it. It will automatically store your data under whatever profile you are using. By default, the profile is set to "defaultUser", be sure to change this to keep your times seperate. If you are on mobile, press and hold the the timer to start and tap to stop it.
