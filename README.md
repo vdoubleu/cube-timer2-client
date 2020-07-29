@@ -1,6 +1,6 @@
 # Vdoubleu's Rubik's Cube Timer
 
-This is the client for my cube timer.
+This is the client for my cube timer. Follow this [link](https://cube-timer-client.herokuapp.com/) to go try it out.
 
 The client is built using React. The Recharts library was used for the graph and it calls a Flask server with MongoDB to store and fetch data. The code for the server can be found [here](https://github.com/vdoubleu/cube-timer2-server)
 
